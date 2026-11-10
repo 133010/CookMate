@@ -23,9 +23,36 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Image(image: AssetImage('assets/CookMate symbol.png')),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/CookMate symbol.png',
+              width: 120,
+              height: 120,
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'CookMate',
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 4),
+            const Text(
+              'Discover Cook, Share',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey,
+                letterSpacing: 1.5,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
