@@ -1,4 +1,4 @@
-name: CookMate_app
+name: cookmate_app
 description: "A new Flutter project."
 publish_to: 'none' 
 version: 1.0.0+1
@@ -10,6 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
+  firebase_core: ^5.1.0
+  firebase_auth: ^7.0.1
 
 dev_dependencies:
   flutter_test:
