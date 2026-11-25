@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'saved_screen.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -23,31 +25,11 @@ class _HomePageState extends State<HomePage> {
   ];
 
   final List<Map<String, String>> recipes = [
-    {
-      'name' : 'Rendang Daging Sapi',
-      'time' : '90 menit',
-      'cal' : '470 Kal',
-    },
-    {
-      'name' : 'Matcha Latte',
-      'time' : '5 menit',
-      'cal' : '140 Kal'
-    },
-    {
-      'name' : 'Donat Kentang',
-      'time' : '70 menit',
-      'cal' : '170 Kal'
-    },
-    {
-      'name' : 'Tteokbokki',
-      'time' : '25 menit',     
-      'cal' : '370 Kal'              
-    },
-    {
-      'name' : 'Salad Sayur',
-      'time' : '15 menit',     
-      'cal' : '50 Kal'        
-    },
+    {'name': 'Rendang Daging Sapi', 'time': '90 menit', 'cal': '470 Kal'},
+    {'name': 'Matcha Latte', 'time': '5 menit', 'cal': '140 Kal'},
+    {'name': 'Donat Kentang', 'time': '70 menit', 'cal': '170 Kal'},
+    {'name': 'Tteokbokki', 'time': '25 menit', 'cal': '370 Kal'},
+    {'name': 'Salad Sayur', 'time': '15 menit', 'cal': '50 Kal'},
   ];
 
   @override
@@ -66,7 +48,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: const  Text('Cookmate'),
+        title: const Text('Cookmate'),
       ),
       body: SafeArea(
         // Center is a layout widget. It takes a single child and positions it
@@ -74,18 +56,13 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           padding: const EdgeInsets.all(20),
           children: [
-
             // Header
             Row(
               children: [
                 const CircleAvatar(
                   radius: 27,
                   backgroundColor: Color(0xFFE8D689),
-                  child: Icon(
-                    Icons.person,
-                    size: 32,
-                    color:Colors.brown,
-                  ),
+                  child: Icon(Icons.person, size: 32, color: Colors.brown),
                 ),
 
                 const SizedBox(width: 12),
@@ -94,10 +71,7 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Halo,',
-                        style: TextStyle(fontSize: 14),
-                      ),
+                      Text('Halo,', style: TextStyle(fontSize: 14)),
                       Text(
                         'Amayra Adinata',
                         style: TextStyle(
@@ -109,33 +83,33 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
 
-                IconButton(                                  
-                  onPressed: () {},                          
+                IconButton(
+                  onPressed: () {},
                   icon: const Icon(Icons.notifications_none),
                 ),
               ],
             ),
 
-            const SizedBox(height: 25),  
+            const SizedBox(height: 25),
 
-            //Kolom pencarian                   
-            TextField(                                         
-              decoration: InputDecoration(                     
+            //Kolom pencarian
+            TextField(
+              decoration: InputDecoration(
                 hintText: 'Cari resep rendang, ayam geprek...',
-                prefixIcon: const Icon(Icons.search),          
-                suffixIcon: const Icon(Icons.tune),            
-                filled: true,                                  
-                fillColor: Colors.white,                       
-                border: OutlineInputBorder(                    
-                  borderRadius: BorderRadius.circular(30),     
-                  borderSide: BorderSide.none,                 
+                prefixIcon: const Icon(Icons.search),
+                suffixIcon: const Icon(Icons.tune),
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide.none,
                 ),
-              ),  
+              ),
             ),
 
             const SizedBox(height: 20),
 
-          //Kategori
+            //Kategori
             SizedBox(
               height: 42,
               child: ListView.builder(
@@ -147,14 +121,14 @@ class _HomePageState extends State<HomePage> {
                   return Padding(
                     padding: const EdgeInsets.only(right: 8),
                     child: ChoiceChip(
-                      label: Text(category), 
+                      label: Text(category),
                       selected: selectedCategory == category,
                       selectedColor: const Color(0xFFE92F40),
                       backgroundColor: Colors.white,
                       labelStyle: TextStyle(
                         color: selectedCategory == category
-                          ? Colors.white
-                          : Colors.black,
+                            ? Colors.white
+                            : Colors.black,
                         fontWeight: FontWeight.w600,
                       ),
                       onSelected: (value) {
@@ -176,10 +150,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 const Text(
                   'Resep Spesial Hari Ini',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
 
                 Container(
@@ -193,10 +164,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   child: const Text(
                     'Trending #1',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 11,
-                    ),
+                    style: TextStyle(color: Colors.white, fontSize: 11),
                   ),
                 ),
               ],
@@ -211,10 +179,7 @@ class _HomePageState extends State<HomePage> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
                 gradient: const LinearGradient(
-                  colors: [
-                    Color(0xFF806044),
-                    Color(0xFF35291E),
-                  ],
+                  colors: [Color(0xFF806044), Color(0xFF35291E)],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
@@ -242,34 +207,30 @@ class _HomePageState extends State<HomePage> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Text('Makanan berkuah khas Jakarta dengan kuah santan yang gurih.',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                        ),
+                      Text(
+                        'Makanan berkuah khas Jakarta dengan kuah santan yang gurih.',
+                        style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
                     ],
                   ),
 
                   const Row(
                     children: [
-                      Icon(Icons.access_time,
-                      color: Colors.white, size: 15),
-                      SizedBox(width:50),
-                      Text('60 menit',
-                        style: TextStyle(color: Colors.white)),
-                      SizedBox(width: 15),
-                      Icon(Icons.local_fire_department,
-                        color: Colors.white, size: 15),
+                      Icon(Icons.access_time, color: Colors.white, size: 15),
                       SizedBox(width: 5),
-                      Text('450 Kal',
-                        style: TextStyle(color: Colors.white)),
+                      Text('60 menit', style: TextStyle(color: Colors.white)),
                       SizedBox(width: 15),
-                      Icon(Icons.people,
-                        color: Colors.white, size: 15),
+                      Icon(
+                        Icons.local_fire_department,
+                        color: Colors.white,
+                        size: 15,
+                      ),
                       SizedBox(width: 5),
-                      Text('4 Porsi',
-                        style: TextStyle(color: Colors.white)),
+                      Text('450 Kal', style: TextStyle(color: Colors.white)),
+                      SizedBox(width: 15),
+                      Icon(Icons.people, color: Colors.white, size: 15),
+                      SizedBox(width: 5),
+                      Text('4 Porsi', style: TextStyle(color: Colors.white)),
                     ],
                   ),
                 ],
@@ -284,19 +245,14 @@ class _HomePageState extends State<HomePage> {
               children: [
                 const Text(
                   'Rekomendasi Pilihan',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
 
                 TextButton(
                   onPressed: () {},
                   child: const Text(
                     'Lihat Semua',
-                    style: TextStyle(
-                      color: Color(0xFFE92F40),
-                    ),
+                    style: TextStyle(color: Color(0xFFE92F40)),
                   ),
                 ),
               ],
@@ -352,7 +308,6 @@ class _HomePageState extends State<HomePage> {
             ),
 
             const SizedBox(height: 25),
-
           ],
         ),
       ),
@@ -365,10 +320,18 @@ class _HomePageState extends State<HomePage> {
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
         onTap: (index) {
-          setState(() {
-            selectedIndex = index;
-          });
+          if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const TersimpanScreen()),
+            );
+          } else {
+            setState(() {
+              selectedIndex = index;
+            });
+          }
         },
+
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.explore_outlined),
